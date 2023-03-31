@@ -421,14 +421,6 @@ binds, card_id_info 意思同登录、注册
     "code": 0,
     "msg": "OK",
     "data": {
-    	"status": 0
-    	"env": []
-    }
-}
-{
-    "code": 0,
-    "msg": "OK",
-    "data": {
     	"status": 1
     	"env": ["dev","review","test","prerelease","produce"]
     }
@@ -483,10 +475,6 @@ binds, card_id_info 意思同登录、注册
   }
 ```
 
-
-
-
-
 ### 10 账号注销
 ##### 简要描述
 
@@ -501,7 +489,6 @@ binds, card_id_info 意思同登录、注册
 ##### 参数
 
 | 参数名         | 必选                 | 类型     | 说明                                                      |
-
 |:------------|:-------------------|:-------|:--------------------------------------------------------|
 | uid         | 是                  | int    | 用户UID                                                   |
 | account     | 是                  | string | 当前账号                                                    |
