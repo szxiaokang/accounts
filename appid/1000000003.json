@@ -1,0 +1,9 @@
+{
+  "game_id": 16,
+  "app_id": 1000000003,
+  "secret_key": "506a19ddb043ff757cc8a4389ade351a",
+  "name": "服务器登录校验",
+  "type": 2,
+  "enabled": 1,
+  "platform_id": 1
+}

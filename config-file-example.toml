@@ -1,0 +1,254 @@
+[Base]
+    Env="dev"
+    LoginTokenExpires = 7200 #秒
+    RefreshTokenExpires = 31536000 #秒
+    ServerKey = "R]3(Fo#N}WVksCb@kang*Kang&230219" #token加密key, 与token服务要一致
+    CodeExpires = 10 #10分钟, 验证码有效时间
+    CodeCheckMax = 10 #30秒内验证码最大校验次数
+    CallRestfulTimeout = 60 #seconds，过期时间
+    AppIdConfPath = "./appid" #AppId 目录
+    EnabledGameList = [16,18] #可以使用此系统的游戏id， 项目编号最大6位，大区编号最大3位位
+    AutoIncrementUid = 100000 #主账号自增起始uid, 项目起始uid=game_id(最大6位) + platform_id(最大3位) + 0000000000 加上 主账号uid， 如 100100000100000，每个项目用户支持无限制增长，设计的在99亿内很好区分
+
+[RefreshTime]
+    AppKeyRefreshTime = 7200 #单位秒，app key的定时刷新时间
+    UserStatusRefreshTime = 60 #单位秒，用户状态的定时刷新时间
+    HolidayRefreshTime = 86400 #单位秒， 节假日刷新时间
+[HttpTimeout]
+    ReadTimeout = 300 #http Server ReadTimeout
+    WriteTimeout = 300 #http Server WriteTimeout
+    IdleTimeout = 300 #http Server IdleTimeout
+[MysqlTimeout]
+    MysqlTimeout = "30s" #Timeout for establishing connections
+    MysqlReadTimeout = "30s" #I/O read timeout
+    MysqlWriteTimeout = "30s" #I/O write timeout
+
+#请求限制规则
+[RequestLimitRule]
+    Enabled = true #是否启用访问限制，true代表启用, false关闭
+    WhiteList = ["/user/loginAuth", "/user/heartbeat", "/captcha/image", "/captcha/verify"] #不限制访问的白名单
+    Ip = [3, 100, 1800] #公用, 3秒内，一个ip最多允许请求100次，超过则锁定1800秒，需要输入验证码正确才能继续，此处如果使用了Nginx, 最好用Nginx那一环来做
+    Login = [3600, 10, 86400] #登录，一个账号，1小时(3600秒)内，登录失败10次，锁定此ip 24小时(86400秒)不能登录
+    VerifyCode = [60, 1, 10] #验证码发送频率，一个账号，60秒内仅允许发送1次。 一个ip, 60秒内只能发送10次，超过锁此ip 60秒,需要输入验证码正确才能继续
+    Register = [10, 10, 86400] #一个ip 10秒内注册成功10个后, 锁定此ip 24小时，再注册时需要输入验证码正确才能继续
+    LoginAuthWhiteList = [] #服务器登录校验白名单，ip或域名，空值 代表不限制
+[Server]
+    Name = "accounts"                           #服务名称
+    LogRoot = "/www/logs/accounts/"             #日志地址
+    DataLogsPath = "/www/logs/account_data/"    #数据日志地址, 数据部门需要的数据, 不做任何处理, 客户端上报什么就写入什么
+    Host = ":8080"
+
+#短信业务
+[AliSmsConfig]
+    RegionId = "xxx"
+    AccessId = "xx"
+    SecretKey = "xx"
+
+#邮件
+[MailConfig]
+    Hostname = "smtp.qq.com"
+    Port = 465
+    Username = "xx@qq.com"
+    Password = "xx"
+    Charset = "utf-8"
+
+#账号基本功能库
+[MysqlAccountBase]
+    Host        = "127.0.0.1"
+    User        = "root"
+    Port        = 3306
+    Pass        = "123456"
+    MaxConn     = 200
+    MaxIdle     = 1000
+    MaxLifetime = 30
+    DbName      = "account_base_info"
+
+#Redis
+[RedisConfig]
+    Addr = "127.0.0.1:6379"
+    Pass = "123456"
+    Db = 8
+    PoolSize     = 200
+    MinIdle     = 10
+    MaxLifetime = 30
+
+#账号MasterDB
+[MysqlAccountMasterList]
+    [MysqlAccountMasterList.account_master_db_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_1"
+    [MysqlAccountMasterList.account_master_db_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_2"
+    [MysqlAccountMasterList.account_master_db_3]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_3"
+
+#账号SlaveDB
+[MysqlAccountSlaveList]
+    [MysqlAccountSlaveList.account_slave_db_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_1"
+    [MysqlAccountSlaveList.account_slave_db_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_2"
+    [MysqlAccountSlaveList.account_slave_db_3]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "account_info_3"
+
+#项目用户Slave DB
+[MysqlGameUserMasterList]
+    # 16 项目，1区
+    [MysqlGameUserMasterList.master_db_16_1_1] #16_1_1, 16代表项目编号， 1代表大区， 1 代表第一个数据库
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_1_1"
+    [MysqlGameUserMasterList.master_db_16_1_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_1_2"
+    # 16项目，2区
+    [MysqlGameUserMasterList.master_db_16_2_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_2_1"
+    [MysqlGameUserMasterList.master_db_16_2_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_2_2"
+    # 18项目， 1区
+    [MysqlGameUserMasterList.master_db_18_1_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_18_1_1"
+    [MysqlGameUserMasterList.master_db_18_1_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 10000
+        MaxLifetime = 30
+        DbName      = "game_user_18_1_2"
+# 从库
+[MysqlGameUserSlaveList]
+    # 16项目，1区
+    [MysqlGameUserSlaveList.slave_db_16_1_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_1_1"
+    [MysqlGameUserSlaveList.slave_db_16_1_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_1_2"
+
+    # 16项目，2区
+    [MysqlGameUserSlaveList.slave_db_16_2_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_2_1"
+    [MysqlGameUserSlaveList.slave_db_16_2_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_16_2_2"
+
+    # 18项目，1区
+    [MysqlGameUserSlaveList.slave_db_18_1_1]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_18_1_1"
+    [MysqlGameUserSlaveList.slave_db_18_1_2]
+        Host        = "127.0.0.1"
+        User        = "root"
+        Port        = 3306
+        Pass        = "123456"
+        MaxConn     = 200
+        MaxIdle     = 1000
+        MaxLifetime = 30
+        DbName      = "game_user_18_1_2"

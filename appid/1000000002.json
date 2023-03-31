@@ -1,0 +1,9 @@
+{
+  "game_id": 16,
+  "app_id": 1000000002,
+  "secret_key": "55ca822ca4ef575c37dc2d00135dbb3a",
+  "name": "IOS",
+  "type": 1,
+  "enabled": 1,
+  "platform_id": 1
+}

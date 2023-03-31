@@ -1,0 +1,9 @@
+{
+  "game_id": 16,
+  "app_id": 1000000004,
+  "secret_key": "a5235128807fcbd84b9dd437eacef521",
+  "name": "客户端-白名单",
+  "type": 3,
+  "enabled": 1,
+  "platform_id": 1
+}

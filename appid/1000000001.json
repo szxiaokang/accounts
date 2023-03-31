@@ -1,0 +1,9 @@
+{
+  "game_id": 16,
+  "app_id": 1000000001,
+  "secret_key": "d1657859c5a0f6131ac22702f708fe2e",
+  "name": "Android",
+  "type": 1,
+  "enabled": 1,
+  "platform_id": 1
+}
