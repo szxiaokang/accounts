@@ -493,7 +493,7 @@ binds, card_id_info 意思同登录、注册
 | uid         | 是                  | int    | 用户UID                                                   |
 | account     | 是                  | string | 当前账号                                                    |
 | token       | 是                  | string | 登录token，需要在有效期内                                         |
-| third_info  | 是                  | string | 不需要使用可以传"{}"，需要解绑第三方需要json以下字段:                         
+| third_info  | 是                  | string | 不需要使用可以传"{}"，需要解绑第三方需要json以下字段:                         |
 | ------      | third_name         | string | 第三方名称，Google、Facebook等，多项目要保持名称一致，如餐厅传入Facebook， ARK要一样 |
 | ------      | third_username     | string | 第三方的用户名                                                 |
 | ------      | third_email        | string | 第三方的email地址，无值传入空字符串                                    |
@@ -750,7 +750,7 @@ binds, card_id_info 意思同登录、注册
 |12302 | 调用身份证实名接口错误             |
 |12303 | 更新错误                    |
 |12304 | 根据account获取账号id不存在      |
-|12305 | 更新账号信息错误                
+|12305 | 更新账号信息错误                |
 
 ### 第三方账号编码
 |第三方|编码|

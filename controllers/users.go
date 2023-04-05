@@ -774,15 +774,3 @@ func RealNameAuth(resp http.ResponseWriter, req *http.Request) {
 	}
 	base.ResponseOK(resp, base.EmptyData, userLog.Hook(requestHook))
 }
-
-func DbQueryTest(resp http.ResponseWriter, req *http.Request) {
-	userLog := hlog.FromRequest(req)
-	requestHook := base.RequestHook{IP: base.GetRealAddr(req).String()}
-	res, err := models.DbTest()
-	if err != nil {
-		fmt.Printf("error: %s", err.Error())
-		base.ResponseOK(resp, err, userLog.Hook(requestHook))
-		return
-	}
-	base.ResponseOK(resp, res, userLog.Hook(requestHook))
-}

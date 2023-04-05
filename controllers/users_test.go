@@ -68,7 +68,7 @@ func TestRegister(t *testing.T) {
 			},*/
 		//手机号+验证码，密码不为默认值则写入
 		/*		{
-				Account:    "13524802596",
+				Account:    "13838384388",
 				Code:       "123688",
 				Password:   password,
 				DeviceType: 2,
@@ -84,7 +84,7 @@ func TestRegister(t *testing.T) {
 			},*/
 		//手机号+密码登录
 		/*		{
-				Account:    "13524802596",
+				Account:    "13838384388",
 				Code:       "-1",
 				Password:   password,
 				DeviceType: 2,
@@ -203,7 +203,7 @@ func TestLogin(t *testing.T) {
 		},
 		//手机号+验证码
 		{
-			Account:   "13524802596",
+			Account:   "13838384388",
 			Code:      "123688",
 			Password:  password,
 			Type:      2,
@@ -217,7 +217,7 @@ func TestLogin(t *testing.T) {
 		},
 		//手机号+密码登录
 		{
-			Account:   "13524802596",
+			Account:   "13838384388",
 			Code:      "-1",
 			Password:  password,
 			Type:      2,
@@ -334,7 +334,7 @@ func TestSendVerifyCode(t *testing.T) {
 	}*/
 
 	p := &base.VerifyCodeFields{
-		Account:  "13524802596",
+		Account:  "13838384388",
 		CodeType: 1, //验证码类型  1: 注册, 2: 忘记密码, 3: 账号绑定, 4: 账号解绑, 5: 登录
 		LangId:   "zh-CN",
 		Type:     2, //1 email, 2 短信

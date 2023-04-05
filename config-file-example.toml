@@ -2,7 +2,7 @@
     Env="dev"
     LoginTokenExpires = 7200 #秒
     RefreshTokenExpires = 31536000 #秒
-    ServerKey = "R]3(Fo#N}WVksCb@kang*Kang&230219" #token加密key, 与token服务要一致
+    ServerKey = "6&_ysqDf@R9Umx#a|5g&S#Zw*!F]$B}z" #token加密key, 与token服务要一致
     CodeExpires = 10 #10分钟, 验证码有效时间
     CodeCheckMax = 10 #30秒内验证码最大校验次数
     CallRestfulTimeout = 60 #seconds，过期时间

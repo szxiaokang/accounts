@@ -41,7 +41,6 @@ func InitRouterService() {
 	http.Handle("/user/getUserInfo", mid.Then(http.HandlerFunc(controllers.GetUserInfo)))       //服务器登录校验
 	http.Handle("/user/heartbeat", mid.Then(http.HandlerFunc(controllers.Heartbeat)))           //心跳监测
 	http.Handle("/user/realNameAuth", mid.Then(http.HandlerFunc(controllers.RealNameAuth)))     //实名认证
-	http.Handle("/dbQuery", mid.Then(http.HandlerFunc(controllers.DbQueryTest)))                //测试
 	http.Handle("/captcha/image", mid.Then(http.HandlerFunc(controllers.Image)))                //图形验证码展示
 	http.Handle("/captcha/verify", mid.Then(http.HandlerFunc(controllers.Verify)))              //图形验证码验证
 

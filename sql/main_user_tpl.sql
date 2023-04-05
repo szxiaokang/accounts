@@ -4,7 +4,7 @@ CREATE TABLE `account_%d`
     `username`        varchar(64)           DEFAULT NULL COMMENT '用户名',
     `email`           varchar(128)          DEFAULT NULL COMMENT '用户的email',
     `guest`           varchar(128)          DEFAULT NULL COMMENT '游客',
-    `third`           varchar(128)          DEFAULT NULL COMMENT '第三方账号，thirdName_ThirdId,如fb_112257954430192',
+    `third`           varchar(128)          DEFAULT NULL COMMENT '第三方账号，第三方名称id加uid,如fb账号：1001_112257954430192',
     `mobile`          varchar(32)           DEFAULT NULL COMMENT '手机号',
     `password`        char(32)     NOT NULL DEFAULT '' COMMENT '密码',
     `created_time`    int(11) NOT NULL DEFAULT '0' COMMENT '注册时间',

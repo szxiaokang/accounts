@@ -234,7 +234,7 @@ func buildDdl(table string) {
 	if table != "mainUser" {
 		buildGameUser(table)
 	}
-	content, _ := os.ReadFile("mainUserTpl.sql")
+	content, _ := os.ReadFile("./sql/main_user_tpl.sql")
 
 	dbNumber := MainAccountDbNumber
 	tbNumber := MainAccountTableNumber
@@ -266,7 +266,7 @@ func buildGameUser(param string) {
 	gameId := params[1]
 	platformId := params[2]
 
-	content, err := os.ReadFile("gameUserTpl.sql")
+	content, err := os.ReadFile("./sql/game_user_tpl.sql")
 	if err != nil {
 		fmt.Printf("read gameUserTpl.sql error: %s", err.Error())
 		os.Exit(-1)
@@ -279,7 +279,7 @@ func buildGameUser(param string) {
 	tableDdl := string(content)
 
 	//申请删除表&删除记录表
-	deleteTableContent, _ := os.ReadFile("gameUserDeleteTpl.sql")
+	deleteTableContent, _ := os.ReadFile("./sql/game_user_delete_tpl.sql")
 	deleteDdl := string(deleteTableContent)
 
 	for dbId := 1; dbId <= dbNumber; dbId++ {
