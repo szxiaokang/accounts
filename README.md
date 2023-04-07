@@ -74,9 +74,7 @@
         ├── go.sum
         ├── main.go
         ├── config-file-example.toml    #配置文件示例
-        ├── gameUserDeleteTpl.sql       #项目用户申请删除SQL模板文件
-        ├── gameUserTpl.sql             #项目用户SQL模板文件
-        ├── mainUserTpl.sql             #主账号SQL模板文件
+        ├── Document.sql             #接口文档
         └── README.md
 
 **四 配置说明**
@@ -121,9 +119,13 @@ RefreshTokenExpires	    #刷新token过期时间，秒数
 - sms_tpl 短信模板表
 - user_delete_config 账号注销配置表
 - holiday 节假日表，用于防沉迷日期判断
-- 
-2.account_info_1、2、3 主账号及hash库（默认3个库），每个库内有100个账号表和100 hash表；
 
-3.game_user_1、2（默认2个），项目用户表（默认2个），每个库内有100个用户表及5个删除申请表；
+2.account_info_1、2、3 主账号及hash库（默认3个库），每个库内默认有100个账号表和100 hash表；
+
+3.game_user_1、2（默认2个），项目用户表（默认2个），每个库内默认有100个用户表及5个删除申请表；
 
 详情见文件，内有注释说明
+
+**八 接口文档**
+
+见 Document.md
